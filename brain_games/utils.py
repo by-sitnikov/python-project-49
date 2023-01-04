@@ -1,30 +1,31 @@
 import prompt
-import random
 
-def start_game():
-    count = 0
+
+LVL_NUMBERS = 3
+
+
+def run(module):
 
     print('Welcome to the Brain Games!')
-    name = prompt.string('May I have your name? ')
-    print(f'Hello, {name}!')
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+    module.welcome()
 
-    while True:
-        random_number = random.randint(1, 100)
-        print(f'Question: {random_number}')
-        answer = prompt.string('Your answer: ')
+    name = prompt.string('May I have your name?: ')
+    print('Hello, {}!'.format(name))
 
-        if random_number % 2 == 0 and answer == 'yes' or random_number % 2 != 0 and answer == 'no':
-            count += 1
-            print('Currect!')
+    incorrect_text = 'is wrong answer. Correct answer was'
+
+    for lvl_counter in range(LVL_NUMBERS):
+        que_and_right = module.question_and_answer()
+        (question, right) = que_and_right
+
+        print(question)
+        guess = prompt.string('Your answer: ')
+
+        if guess == right:
+            print('Correct!')
         else:
-            if random_number % 2 == 0:
-                print(f"'{answer}' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, {name}!")
-            else:
-                print(f"'{answer}' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, {name}!")
+            print('{} {} {}.'.format(guess, incorrect_text, right))
+            print("Let's try again, {}.".format(name))
             break
-
-        if count == 3:
-            print(f'Congratulations, {name}!')
-            break
-
+    else:
+        print('Congratulations, {}!'.format(name))

@@ -3,3 +3,9 @@
 
 # lock-файлы
 poetry.lock
+
+# Сборка
+*.egg-info
+*.pyc
+__pycache__
+dist/

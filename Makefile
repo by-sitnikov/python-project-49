@@ -14,6 +14,8 @@ brain-games:
 	poetry run brain-games
 brain-even:
 	poetry run brain-even
+brain-calc:
+	poetry run brain-calc
 
 
 # Линтер
