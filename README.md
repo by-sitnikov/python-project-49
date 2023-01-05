@@ -16,3 +16,6 @@
 
 ## brain-progression
 [![asciicast](https://asciinema.org/a/549677.svg)](https://asciinema.org/a/549677)
+
+## brain-prime
+[![asciicast](https://asciinema.org/a/549680.svg)](https://asciinema.org/a/549680)
